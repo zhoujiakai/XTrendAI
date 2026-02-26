@@ -159,11 +159,13 @@ export class XApiWrapper extends BaseWrapper<XApiConfig> {
   }
 
   /**
-   * 实际执行API请求
+   * 实际执行API请求 - 直接调用Twitter API v1.1
    */
   private async fetchTrendsFromAPI(woeid: number): Promise<XApiTrend[]> {
     try {
-      const url = `${this.config.baseUrl}/trends/place.json?id=${woeid}`
+      // 直接调用 Twitter API v1.1 trends/place 端点
+      const url = `${V1_BASE_URL}/trends/place.json?id=${woeid}`
+
       this.requestCount++
 
       const response = await fetch(url, {
@@ -173,19 +175,21 @@ export class XApiWrapper extends BaseWrapper<XApiConfig> {
         }
       })
 
-      // 处理响应状态
+      // 处理响应状态和速率限制
       await this.handleResponseStatus(response)
 
-      // 解析响应
+      // 解析响应 - Twitter API 直接返回趋势数组
       const data = await response.json()
-      const trends = data[0]?.trends || []
 
-      this.log(`获取到 ${trends.length} 条趋势`, {
+      // Twitter API 返回格式: [{ trends: [...], locations: [...], ... }]
+      const trendsData = Array.isArray(data) ? data[0]?.trends : []
+
+      this.log(`获取到 ${trendsData.length} 条趋势`, {
         woeid,
-        asOf: data[0]?.as_of
+        source: 'twitter-api-v1.1'
       })
 
-      return trends
+      return trendsData
 
     } catch (error) {
       if (error instanceof XApiError) {
@@ -201,6 +205,20 @@ export class XApiWrapper extends BaseWrapper<XApiConfig> {
       this.lastError = networkError
       throw networkError
     }
+  }
+
+  /**
+   * 从 WOEID 获取地区代码
+   */
+  private getRegionFromWoeid(woeid: number): string {
+    const woeidToRegion: Record<number, string> = {
+      1: 'global',
+      23424977: 'us',
+      23424781: 'cn',
+      23424975: 'uk',
+      23424856: 'jp',
+    }
+    return woeidToRegion[woeid] || 'global'
   }
 
   /**
