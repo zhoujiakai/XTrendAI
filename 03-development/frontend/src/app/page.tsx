@@ -17,16 +17,24 @@ function HomeContent() {
     setIsFetching(true)
     try {
       const response = await fetch('/api/trends')
+
+      // 先检查响应状态
+      if (!response.ok) {
+        const errorText = await response.text()
+        console.error('[fetchTrends] Response not OK:', response.status, response.statusText, errorText)
+        return
+      }
+
       const result = await response.json()
 
       if (result.success) {
         setTrends(result.data.trends)
         setLastUpdated(result.data.lastUpdated)
       } else {
-        console.error('Failed to fetch trends:', result.error)
+        console.error('[fetchTrends] API returned error:', result.error)
       }
     } catch (error) {
-      console.error('Error fetching trends:', error)
+      console.error('[fetchTrends] Exception caught:', error)
     } finally {
       setIsFetching(false)
       setIsInitialLoad(false)

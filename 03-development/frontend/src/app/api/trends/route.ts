@@ -85,14 +85,17 @@ export async function GET(request: NextRequest) {
       timestamp: new Date().toISOString(),
     })
   } catch (error) {
-    console.error('Error fetching trends:', error)
+    console.error('[API /trends] Error fetching trends:', error)
+    const errorMessage = error instanceof Error ? error.message : String(error)
+    const errorStack = error instanceof Error ? error.stack : undefined
+
     return NextResponse.json(
       {
         success: false,
         error: {
           code: 'INTERNAL_ERROR',
           message: '获取热点失败',
-          details: error instanceof Error ? error.message : String(error),
+          details: errorMessage,
         },
         timestamp: new Date().toISOString(),
       },

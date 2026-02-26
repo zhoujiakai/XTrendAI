@@ -41,7 +41,9 @@ export class MockWrapper extends BaseWrapper {
     await this.delay(300)
 
     // 返回模拟数据
-    return mockTrends.trends || []
+    const trends = mockTrends?.trends || []
+    console.log('[MockWrapper] Returning trends:', trends.length, 'items')
+    return trends
   }
 
   /**

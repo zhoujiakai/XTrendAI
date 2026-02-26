@@ -158,15 +158,20 @@ export class TrendService {
    * 获取公共热点（所有用户可见）
    */
   static async getPublicTrends(): Promise<Trend[]> {
-    // 对于MockWrapper，使用其专用方法
-    if (getCurrentDataSource() === 'mock') {
-      const rawTrends = await (this.wrapper as any).getPublicTrends()
-      return this.normalizeTrends(rawTrends)
-    }
+    try {
+      // 对于MockWrapper，使用其专用方法
+      if (getCurrentDataSource() === 'mock') {
+        const rawTrends = await (this.wrapper as any).getPublicTrends()
+        return this.normalizeTrends(rawTrends)
+      }
 
-    // 对于其他数据源，从所有热点中筛选公共热点
-    const allTrends = await this.getAllTrends()
-    return allTrends.filter((t) => t.isPublic)
+      // 对于其他数据源，从所有热点中筛选公共热点
+      const allTrends = await this.getAllTrends()
+      return allTrends.filter((t) => t.isPublic)
+    } catch (error) {
+      console.error('[TrendService] getPublicTrends error:', error)
+      throw error
+    }
   }
 
   /**
