@@ -1,0 +1,64 @@
+{
+  "common": {
+    "appName": "XTrendAI",
+    "loading": "Loading...",
+    "error": "Error occurred",
+    "retry": "Retry",
+    "copy": "Copy",
+    "copied": "Copied",
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "next": "Next",
+    "back": "Back",
+    "close": "Close"
+  },
+  "home": {
+    "title": "Today's Trends",
+    "subtitle": "AI-powered task generation driven by X trends",
+    "fetchTrends": "Get Latest Trends",
+    "lastUpdate": "Last Updated",
+    "noTrends": "No trends available",
+    "quotaExceeded": "Daily fetch limit reached",
+    "viewTasks": "View Tasks",
+    "hideTasks": "Hide Tasks"
+  },
+  "profile": {
+    "title": "User Profile",
+    "subtitle": "Complete your profile for personalized trends",
+    "steps": {
+      "language": "Select interface language",
+      "region": "Select your region",
+      "age": "Select your age group",
+      "ethnicity": "Select your ethnicity (optional)",
+      "scenarios": "Select your scenarios"
+    }
+  },
+  "scenarios": {
+    "POD": "POD Design",
+    "CONTENT": "Content Creation",
+    "MARKETING": "Marketing Copy",
+    "DEVELOPMENT": "Quick Development"
+  },
+  "templates": {
+    "POD": {
+      "tshirt": "A trendy t-shirt design for {trendName}, {style}, {specs}",
+      "tote": "A chic tote bag design inspired by {trendName}, {style}, {specs}",
+      "mug": "A coffee mug design themed around {trendName}, {style}, {specs}",
+      "phonecase": "A phone case design for {trendName} fans, {style}, {specs}"
+    },
+    "CONTENT": {
+      "videoTopic": "{trendName} Deep Dive\n\nOutline:\n{outline}",
+      "scriptOutline": "[{trendName} Video Script]\n\nDuration: {duration}\nStyle: {style}\n\n{sections}"
+    },
+    "MARKETING": {
+      "title": "{emoji} {headline}! {cta}",
+      "description": "{trendName} themed merchandise, {features}. {appeal}",
+      "tags": "{trendName},{relatedTags}"
+    },
+    "DEVELOPMENT": {
+      "requirement": "[{trendName} Tool Requirements]\n\nGoal: {goal}\n\nCore Features:\n{features}",
+      "techStack": "Recommended Tech Stack:\n\nFrontend: {frontend}\nBackend: {backend}\nDatabase: {database}\nDeployment: {deployment}"
+    }
+  }
+}

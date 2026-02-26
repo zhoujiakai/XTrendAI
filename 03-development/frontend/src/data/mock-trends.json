@@ -1,0 +1,185 @@
+{
+  "updatedAt": "2026-02-26T10:00:00Z",
+  "trends": [
+    {
+      "id": "trend-superbowl-2026",
+      "name": "#SuperBowl2026",
+      "displayName": "SuperBowl2026",
+      "volume": 1200000,
+      "growthRate": 15.2,
+      "category": "sports",
+      "regions": ["us"],
+      "isPublic": true,
+      "relatedTweets": 1200000,
+      "url": "https://x.com/search?q=%23SuperBowl2026",
+      "keywords": ["football", "nfl", "super bowl", "championship"],
+      "demographics": {
+        "ageGroups": ["18-24", "25-34", "35-44"],
+        "regions": ["us"]
+      },
+      "updatedAt": "2026-02-26T10:00:00Z"
+    },
+    {
+      "id": "trend-oscars-2026",
+      "name": "#Oscars2026",
+      "displayName": "Oscars2026",
+      "volume": 890000,
+      "growthRate": 8.5,
+      "category": "entertainment",
+      "regions": ["global"],
+      "isPublic": true,
+      "relatedTweets": 890000,
+      "url": "https://x.com/search?q=%23Oscars2026",
+      "keywords": ["oscars", "academy awards", "movies", "film"],
+      "demographics": {
+        "ageGroups": ["18-24", "25-34", "35-44", "45+"],
+        "regions": ["global"]
+      },
+      "updatedAt": "2026-02-26T09:45:00Z"
+    },
+    {
+      "id": "trend-ai-news-2026",
+      "name": "#AINews",
+      "displayName": "AINews",
+      "volume": 450000,
+      "growthRate": 22.5,
+      "category": "tech",
+      "regions": ["us", "cn", "global"],
+      "isPublic": false,
+      "relatedTweets": 450000,
+      "url": "https://x.com/search?q=%23AINews",
+      "keywords": ["ai", "artificial intelligence", "tech", "machine learning"],
+      "demographics": {
+        "ageGroups": ["25-34", "35-44"],
+        "regions": ["us", "cn"]
+      },
+      "updatedAt": "2026-02-26T09:30:00Z"
+    },
+    {
+      "id": "trend-valentine-2026",
+      "name": "#Valentine2026",
+      "displayName": "Valentine2026",
+      "volume": 680000,
+      "growthRate": 12.3,
+      "category": "lifestyle",
+      "regions": ["global"],
+      "isPublic": true,
+      "relatedTweets": 680000,
+      "url": "https://x.com/search?q=%23Valentine2026",
+      "keywords": ["valentine", "love", "romance", "gift"],
+      "demographics": {
+        "ageGroups": ["18-24", "25-34", "35-44"],
+        "regions": ["global"]
+      },
+      "updatedAt": "2026-02-26T09:15:00Z"
+    },
+    {
+      "id": "trend-crypto-surge",
+      "name": "#CryptoSurge",
+      "displayName": "Crypto Market Surge",
+      "volume": 320000,
+      "growthRate": 45.8,
+      "category": "finance",
+      "regions": ["global"],
+      "isPublic": false,
+      "relatedTweets": 320000,
+      "url": "https://x.com/search?q=%23CryptoSurge",
+      "keywords": ["crypto", "bitcoin", "ethereum", "defi"],
+      "demographics": {
+        "ageGroups": ["25-34", "35-44"],
+        "regions": ["global"]
+      },
+      "updatedAt": "2026-02-26T09:00:00Z"
+    },
+    {
+      "id": "trend-new-iphone",
+      "name": "#NewiPhone",
+      "displayName": "New iPhone Release",
+      "volume": 520000,
+      "growthRate": 18.7,
+      "category": "tech",
+      "regions": ["us", "cn", "global"],
+      "isPublic": false,
+      "relatedTweets": 520000,
+      "url": "https://x.com/search?q=%23NewiPhone",
+      "keywords": ["iphone", "apple", "smartphone", "tech"],
+      "demographics": {
+        "ageGroups": ["18-24", "25-34", "35-44"],
+        "regions": ["us", "cn"]
+      },
+      "updatedAt": "2026-02-26T08:45:00Z"
+    },
+    {
+      "id": "trend-kpop-comeback",
+      "name": "#KPopComeback",
+      "displayName": "KPop Comeback Season",
+      "volume": 750000,
+      "growthRate": 35.2,
+      "category": "entertainment",
+      "regions": ["global"],
+      "isPublic": false,
+      "relatedTweets": 750000,
+      "url": "https://x.com/search?q=%23KPopComeback",
+      "keywords": ["kpop", "music", "comeback", "idol"],
+      "demographics": {
+        "ageGroups": ["18-24", "25-34"],
+        "regions": ["global"]
+      },
+      "updatedAt": "2026-02-26T08:30:00Z"
+    },
+    {
+      "id": "trend-spring-fashion",
+      "name": "#SpringFashion2026",
+      "displayName": "Spring Fashion 2026",
+      "volume": 280000,
+      "growthRate": 28.5,
+      "category": "fashion",
+      "regions": ["us", "uk", "global"],
+      "isPublic": false,
+      "relatedTweets": 280000,
+      "url": "https://x.com/search?q=%23SpringFashion2026",
+      "keywords": ["fashion", "spring", "style", "trends"],
+      "demographics": {
+        "ageGroups": ["18-24", "25-34", "35-44"],
+        "regions": ["us", "uk"]
+      },
+      "updatedAt": "2026-02-26T08:15:00Z"
+    },
+    {
+      "id": "trend-games-release",
+      "name": "#NewGames2026",
+      "displayName": "New Game Releases",
+      "volume": 410000,
+      "growthRate": 52.1,
+      "category": "gaming",
+      "regions": ["global"],
+      "isPublic": false,
+      "relatedTweets": 410000,
+      "url": "https://x.com/search?q=%23NewGames2026",
+      "keywords": ["gaming", "video games", "release", "esports"],
+      "demographics": {
+        "ageGroups": ["18-24", "25-34"],
+        "regions": ["global"]
+      },
+      "updatedAt": "2026-02-26T08:00:00Z"
+    },
+    {
+      "id": "trend-climate-action",
+      "name": "#ClimateAction",
+      "displayName": "Climate Action Now",
+      "volume": 590000,
+      "growthRate": 9.8,
+      "category": "news",
+      "regions": ["global"],
+      "isPublic": true,
+      "relatedTweets": 590000,
+      "url": "https://x.com/search?q=%23ClimateAction",
+      "keywords": ["climate", "environment", "sustainability", "green"],
+      "demographics": {
+        "ageGroups": ["25-34", "35-44", "45+"],
+        "regions": ["global"]
+      },
+      "updatedAt": "2026-02-26T07:45:00Z"
+    }
+  ]
+}

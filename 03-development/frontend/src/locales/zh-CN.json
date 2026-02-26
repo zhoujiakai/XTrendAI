@@ -1,0 +1,64 @@
+{
+  "common": {
+    "appName": "XTrendAI",
+    "loading": "加载中...",
+    "error": "出错了",
+    "retry": "重试",
+    "copy": "复制",
+    "copied": "已复制",
+    "save": "保存",
+    "cancel": "取消",
+    "confirm": "确认",
+    "next": "下一步",
+    "back": "返回",
+    "close": "关闭"
+  },
+  "home": {
+    "title": "今日热点",
+    "subtitle": "X平台热点驱动的智能任务生成",
+    "fetchTrends": "获取最新热点",
+    "lastUpdate": "最后更新",
+    "noTrends": "暂无热点数据",
+    "quotaExceeded": "今日获取次数已达上限",
+    "viewTasks": "查看任务",
+    "hideTasks": "收起任务"
+  },
+  "profile": {
+    "title": "用户配置",
+    "subtitle": "完善您的画像以获取个性化热点",
+    "steps": {
+      "language": "选择界面语言",
+      "region": "选择您关注的地区",
+      "age": "选择您的年龄段",
+      "ethnicity": "选择您的族裔（可选）",
+      "scenarios": "选择您想要的场景"
+    }
+  },
+  "scenarios": {
+    "POD": "POD按需打印",
+    "CONTENT": "内容创作",
+    "MARKETING": "营销文案",
+    "DEVELOPMENT": "快速开发"
+  },
+  "templates": {
+    "POD": {
+      "tshirt": "一款适合{trendName}的潮流T恤设计，{style}，{specs}",
+      "tote": "一款受{trendName}启发的时尚帆布袋设计，{style}，{specs}",
+      "mug": "一款以{trendName}为主题的咖啡马克杯设计，{style}，{specs}",
+      "phonecase": "一款为{trendName}粉丝设计的手机壳，{style}，{specs}"
+    },
+    "CONTENT": {
+      "videoTopic": "{trendName} 热点解读\n\n大纲：\n{outline}",
+      "scriptOutline": "【{trendName} 主题视频脚本】\n\n时长：{duration}\n风格：{style}\n\n{sections}"
+    },
+    "MARKETING": {
+      "title": "{emoji} {headline}！{cta}",
+      "description": "{trendName} 主题商品，{features}。{appeal}",
+      "tags": "{trendName},{relatedTags}"
+    },
+    "DEVELOPMENT": {
+      "requirement": "【{trendName} 相关工具需求】\n\n目标：{goal}\n\n核心功能：\n{features}",
+      "techStack": "推荐技术栈：\n\n前端：{frontend}\n后端：{backend}\n数据库：{database}\n部署：{deployment}"
+    }
+  }
+}
