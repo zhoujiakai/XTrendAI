@@ -86,13 +86,13 @@ async function main() {
   }
 
   // 测试全球热点
-  console.log('🔍 测试 XApiWrapper.getGlobalTrends()...\n');
+  console.log('🔍 测试 XApiWrapper.getTrends()...\n');
 
   try {
-    const trends = await wrapper.getGlobalTrends();
+    const trends = await wrapper.getTrends(); // 美国 WOEID
     printResult({
       success: true,
-      location: 'Global',
+      location: '美国 (WOEID: 23424977)',
       count: trends.length,
       trends: trends
     });

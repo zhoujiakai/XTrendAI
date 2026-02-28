@@ -90,16 +90,14 @@ const WOEID_MAP: Record<string, number> = {
   'global': 1        // 全球
 }
 
-// X API v1.1 端点（trends/place 仍需使用v1.1）
-const V1_BASE_URL = 'https://api.twitter.com/1.1'
-const V2_BASE_URL = 'https://api.twitter.com/2'
+// X API v2 端点（使用 api.x.com 域名）
+const V2_BASE_URL = 'https://api.x.com/2'
 
 /**
  * X(Twitter) API 封装
  * 用于生产环境接入真实的X平台热点数据
  *
- * 注意：Twitter API v2 不支持 trends 端点
- * 需要使用 v1.1 的 trends/place 端点
+ * 使用 X API v2 端点: https://api.x.com/2/trends/by/woeid/{woeid}
  */
 export class XApiWrapper extends BaseWrapper<XApiConfig> {
   private lastError: XApiError | null = null
@@ -112,7 +110,7 @@ export class XApiWrapper extends BaseWrapper<XApiConfig> {
       apiKey: process.env.X_API_KEY || '',
       apiSecret: process.env.X_API_SECRET || '',
       bearerToken: process.env.X_BEARER_TOKEN || '',
-      baseUrl: V1_BASE_URL // 使用v1.1
+      baseUrl: V2_BASE_URL
     })
 
     // 初始化时检查配置
@@ -129,7 +127,8 @@ export class XApiWrapper extends BaseWrapper<XApiConfig> {
    * 获取趋势列表
    * @param woeid Yahoo天气ID，1=全球
    */
-  async getTrends(woeid: number = 1): Promise<XApiTrend[]> {
+  async getTrends(woeid: number = 23424977): Promise<XApiTrend[]> {
+    // 默认使用美国 (woeid: 23424977)
     // 检查配置
     if (!this.isConfigured()) {
       throw new XApiError(
@@ -159,37 +158,45 @@ export class XApiWrapper extends BaseWrapper<XApiConfig> {
   }
 
   /**
-   * 实际执行API请求 - 直接调用Twitter API v1.1
+   * 实际执行API请求 - 使用 X API v2
    */
   private async fetchTrendsFromAPI(woeid: number): Promise<XApiTrend[]> {
     try {
-      // 直接调用 Twitter API v1.1 trends/place 端点
-      const url = `${V1_BASE_URL}/trends/place.json?id=${woeid}`
+      // 使用 X API v2 trends/by/woeid 端点
+      const url = `${V2_BASE_URL}/trends/by/woeid/${woeid}?max_trends=50`
 
       this.requestCount++
 
       const response = await fetch(url, {
         headers: {
-          'Authorization': `Bearer ${this.config.bearerToken}`,
-          'Content-Type': 'application/json'
+          'Authorization': `Bearer ${this.config.bearerToken}`
         }
       })
 
       // 处理响应状态和速率限制
       await this.handleResponseStatus(response)
 
-      // 解析响应 - Twitter API 直接返回趋势数组
-      const data = await response.json()
+      // 解析响应 - X API v2 返回格式: { data: [...], errors: [...] }
+      const result = await response.json()
 
-      // Twitter API 返回格式: [{ trends: [...], locations: [...], ... }]
-      const trendsData = Array.isArray(data) ? data[0]?.trends : []
+      // X API v2 返回格式: { data: [{ trend_name, tweet_count }], errors: [...] }
+      const trendsData = result.data || []
 
-      this.log(`获取到 ${trendsData.length} 条趋势`, {
+      // 转换为标准格式
+      const normalizedTrends: XApiTrend[] = trendsData.map((item: any) => ({
+        name: item.trend_name,
+        url: `https://x.com/search?q=${encodeURIComponent(item.trend_name)}`,
+        promoted_content: 0,
+        query: item.trend_name,
+        tweet_volume: item.tweet_count || 0
+      }))
+
+      this.log(`获取到 ${normalizedTrends.length} 条趋势`, {
         woeid,
-        source: 'twitter-api-v1.1'
+        source: 'x-api-v2'
       })
 
-      return trendsData
+      return normalizedTrends
 
     } catch (error) {
       if (error instanceof XApiError) {
